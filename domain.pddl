@@ -24,7 +24,8 @@ hor ver - coche
         (CabezaEn ?c ?c3)(ColaEn ?c ?c1)
         (DerechaDe ?c2 ?c1)
         (not (Extremo ?c3))
-        (imply (not (Extremo ?c3)) (DerechaDe ?c4 ?c3)
+        (imply (not (Extremo ?c3)) 
+            (DerechaDe ?c4 ?c3)
         )
     )
     :effect (and 
@@ -71,6 +72,7 @@ hor ver - coche
         (Libre ?c1)(En ?c ?c2)(En ?c ?c3)(En ?c ?c4)
         (CabezaEn ?c ?c4)(ColaEn ?c ?c2)
         (ArribaDe ?c4 ?c3)
+        (not (Extremo ?c2))
         (imply (not (Extremo ?c2)) 
             (ArribaDe ?c2 ?c1)
         )
