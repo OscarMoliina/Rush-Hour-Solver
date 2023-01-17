@@ -23,9 +23,8 @@ hor ver - coche
         (En ?c ?c1)(En ?c ?c2)(En ?c ?c3)(Libre ?c4)
         (CabezaEn ?c ?c3)(ColaEn ?c ?c1)
         (DerechaDe ?c2 ?c1)
-        (imply (and
-            (DerechaDe ?c4 ?c3)
-        )  (not (Extremo ?c3))
+        (not (Extremo ?c3))
+        (imply (not (Extremo ?c3)) (DerechaDe ?c4 ?c3)
         )
     )
     :effect (and 
@@ -40,9 +39,10 @@ hor ver - coche
         (Libre ?c1)(En ?c ?c2)(En ?c ?c3)(En ?c ?c4)
         (CabezaEn ?c ?c4)(ColaEn ?c ?c2)
         (DerechaDe ?c4 ?c3)
-        (imply (and
+        (not (Extremo ?c2))
+        (imply (not (Extremo ?c2))
             (DerechaDe ?c2 ?c1)
-        ) (not (Extremo ?c2)))
+        )
     )
     :effect (and 
         (not (En ?c ?c4))(En ?c ?c1)(Libre ?c4)
@@ -55,9 +55,10 @@ hor ver - coche
         (En ?c ?c1)(En ?c ?c2)(En ?c ?c3)(Libre ?c4)
         (CabezaEn ?c ?c3)(ColaEn ?c ?c1)
         (ArribaDe ?c2 ?c1)
-        (imply (and
+        (not (Extremo ?c3))
+        (imply (not (Extremo ?c3))
             (ArribaDe ?c4 ?c3)
-        ) (not (Extremo ?c3)))
+        )
     )
     :effect (and 
         (not (En ?c ?c1))(En ?c ?c4)(Libre ?c1)
@@ -70,9 +71,9 @@ hor ver - coche
         (Libre ?c1)(En ?c ?c2)(En ?c ?c3)(En ?c ?c4)
         (CabezaEn ?c ?c4)(ColaEn ?c ?c2)
         (ArribaDe ?c4 ?c3)
-        (imply (and
+        (imply (not (Extremo ?c2)) 
             (ArribaDe ?c2 ?c1)
-        ) (not (Extremo ?c2)))
+        )
     )
     :effect (and 
         (not (En ?c ?c4))(En ?c ?c1)(Libre ?c4)
