@@ -104,4 +104,6 @@ def generar_juego(r:list, horizontales: dict, verticales: dict, n: int):
         f.write('\n)')
     f.close()
 
-generar_juego([41,42],{1:[11,12,13]},{1:[35,45]},6)
+r, hor, ver, n = sys.argv[1], sys.argv[2], sys.argv[3], sys.argv[4]
+
+generar_juego(r,hor,ver,n)
