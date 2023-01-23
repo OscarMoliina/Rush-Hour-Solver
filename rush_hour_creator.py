@@ -1,7 +1,7 @@
 import sys
 
 def generar_juego(r:list, horizontales: dict, verticales: dict, n: int):
-    with open('problem.pddl', 'w') as f:
+    with open('problem1.pddl', 'w') as f:
         f.write('(define (problem rush_hour) (:domain rush_hour)\n')
 
         # ---- OBJECTS ---- 
@@ -14,10 +14,13 @@ def generar_juego(r:list, horizontales: dict, verticales: dict, n: int):
         f.write(' - hor\n')
 
         #Verticales
-        f.write('\t')
-        for i in range(1,len(verticales)+1):
-            f.write(f'V{i} ')
-        f.write('- ver\n')
+        if len(verticales) > 0:
+            f.write('\t')
+            for i in range(1,len(verticales)+1):
+                f.write(f'V{i} ')
+            f.write('- ver\n')
+        else:
+            f.write('\n')
 
         #Casillas
         for i in range(n,0,-1):
@@ -40,18 +43,25 @@ def generar_juego(r:list, horizontales: dict, verticales: dict, n: int):
         #DerechaDe
         for j in range(1,n):
             f.write('\t')
-            for i in range(1,n):
+            for i in range(1,n+1):
                 f.write(f'(DerechaDe C{i}{j+1} C{i}{j}) ')
             f.write('\n')
         f.write('\n')
 
-        #Extremo
+        #ExtremoNS
+        f.write('\t')
         for i in range(1,n+1):
-            f.write('\t')
             for j in range(1,n+1):
-                if i==1 or j==1 or i==6 or j==6:
-                    f.write(f'(Extremo C{i}{j}) ')
-            f.write('\n')
+                if i==1 or i==6:
+                    f.write(f'(ExtremoNS C{i}{j}) ')
+        f.write('\n')
+
+        #ExtremoEO
+        f.write('\t')
+        for j in range(1,n+1):
+            for i in range(1,n+1):
+                if j==1 or j==6:
+                    f.write(f'(ExtremoEO C{i}{j}) ')
         f.write('\n')
 
         #Rojo
@@ -106,4 +116,4 @@ def generar_juego(r:list, horizontales: dict, verticales: dict, n: int):
 
 #r, hor, ver, n = sys.argv[1], sys.argv[2], sys.argv[3], sys.argv[4]
 
-#generar_juego(r,hor,ver,n)
+generar_juego([41,42],{1:[12,13],2:[33,34,35],3:[25,26],4:[65,66]},{1:[11,21],2:[51,61],3:[22,32],4:[43,53,63],5:[14,24],6:[54,55],7:[36,46,56]},6)

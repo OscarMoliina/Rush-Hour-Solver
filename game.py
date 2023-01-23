@@ -22,12 +22,13 @@ class Game():
     def game_loop(self):
         while self.playing:
             self.check_events()
-            if self.START_KEY:
+            if self.START_KEY or self.BACK_KEY:
                 self.playing = False
             self.display.fill(NEGRO)
-            self.window.blit(self.display, (0,0))
-
+            
             self.board.draw_board()
+            
+            self.window.blit(self.display, (0,0))
             
             pygame.display.update()
             self.reset_keys()
@@ -50,9 +51,11 @@ class Game():
     def reset_keys(self):
         self.UP_KEY, self.DOWN_KEY, self.START_KEY, self.BACK_KEY = False, False, False, False
             
-    def draw_text(self, text, size, x, y):
+    def draw_text(self, text, size, x, y, rotation):
         font = pygame.font.Font(self.font_name, size)
         text_surface = font.render(text, True, BLANCO)
+        if rotation != 0:
+            text_surface = pygame.transform.rotate(text_surface,rotation)
         text_rect = text_surface.get_rect()
         text_rect.center = (x,y)
         self.display.blit(text_surface, text_rect)

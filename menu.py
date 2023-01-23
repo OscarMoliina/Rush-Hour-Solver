@@ -9,7 +9,7 @@ class Menu():
         self.cursor_rect = pygame.Rect(0,0,35,35)
 
     def draw_cursor(self):
-        self.game.draw_text('*', OPCION, self.cursor_rect.x, self.cursor_rect.y)
+        self.game.draw_text('*', OPCION, self.cursor_rect.x, self.cursor_rect.y, 0)
     
     def blit_screen(self):
         self.game.window.blit(self.game.display, (0,0))
@@ -31,10 +31,10 @@ class MainMenu(Menu):
             self.game.check_events()
             self.check_input()
             self.game.display.fill(NEGRO)
-            self.game.draw_text('Main Menu', TITULO, WIDTH / 2, HEIGHT / 2 - ALTURA_TITULO)
-            self.game.draw_text('Start Game', OPCION, self.startx, self.starty)
-            self.game.draw_text('Options', OPCION, self.optionsx, self.optionsy)
-            self.game.draw_text('Credits', OPCION, self.creditsx, self.creditsy)
+            self.game.draw_text('Main Menu', TITULO, WIDTH / 2, HEIGHT / 2 - ALTURA_TITULO, 0)
+            self.game.draw_text('Start Game', OPCION, self.startx, self.starty, 0)
+            self.game.draw_text('Options', OPCION, self.optionsx, self.optionsy, 0)
+            self.game.draw_text('Credits', OPCION, self.creditsx, self.creditsy, 0)
             self.draw_cursor()
             self.blit_screen()
     
@@ -86,9 +86,9 @@ class OptionsMenu(Menu):
             self.game.check_events()
             self.check_input()
             self.game.display.fill(NEGRO)
-            self.game.draw_text('Options', TITULO, WIDTH / 2, HEIGHT / 2 - ALTURA_TITULO)
-            self.game.draw_text('Volume', OPCION, self.volx, self.voly)
-            self.game.draw_text('Controls', OPCION, self.controlsx, self.controlsy)
+            self.game.draw_text('Options', TITULO, WIDTH / 2, HEIGHT / 2 - ALTURA_TITULO, 0)
+            self.game.draw_text('Volume', OPCION, self.volx, self.voly, 0)
+            self.game.draw_text('Controls', OPCION, self.controlsx, self.controlsy, 0)
             self.draw_cursor()
             self.blit_screen()
     
@@ -120,8 +120,8 @@ class CreditsMenu(Menu):
                 self.game.curr_menu = self.game.main_menu
                 self.run_display = False
             self.game.display.fill(NEGRO)
-            self.game.draw_text('Credits', TITULO, WIDTH / 2, HEIGHT / 2 - ALTURA_TITULO)
-            self.game.draw_text('Made by Òscar Molina', OPCION, WIDTH / 2, HEIGHT / 2 + 10)
+            self.game.draw_text('Credits', TITULO, WIDTH / 2, HEIGHT / 2 - ALTURA_TITULO, 0)
+            self.game.draw_text('Made by Òscar Molina', OPCION, WIDTH / 2, HEIGHT / 2 + 10, 0)
             self.blit_screen()
 
 

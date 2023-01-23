@@ -14,19 +14,19 @@ hor ver - coche
     (ColaEn ?co - coche ?ca - casilla)
     (DerechaDe ?c1 - casilla ?c2 - casilla)
     (ArribaDe ?c1 - casilla ?c2 - casilla)
-    (Extremo ?c - casilla)
+    (ExtremoNS ?c - casilla)
+    (ExtremoEO ?c - casilla)
 )
 
 (:action Mover_Derecha
     :parameters (?c - hor ?c1 - casilla ?c2 - casilla ?c3 - casilla ?c4 - casilla)
     :precondition (and
-        (En ?c ?c1)(En ?c ?c2)(En ?c ?c3)(Libre ?c4)
+        (not (ExtremoEO ?c3))
+        (Libre ?c4)
+        (DerechaDe ?c4 ?c3)(En ?c ?c3)
         (CabezaEn ?c ?c3)(ColaEn ?c ?c1)
         (DerechaDe ?c2 ?c1)
-        (not (Extremo ?c3))
-        (imply (not (Extremo ?c3)) 
-            (DerechaDe ?c4 ?c3)
-        )
+        (En ?c ?c1)(En ?c ?c2)
     )
     :effect (and 
         (not (En ?c ?c1))(En ?c ?c4)(Libre ?c1)
@@ -37,13 +37,12 @@ hor ver - coche
 (:action Mover_Izquierda
     :parameters (?c - hor ?c1 - casilla ?c2 - casilla ?c3 - casilla ?c4 - casilla)
     :precondition (and 
-        (Libre ?c1)(En ?c ?c2)(En ?c ?c3)(En ?c ?c4)
+        (not (ExtremoEO ?c2))
+        (DerechaDe ?c2 ?c1)
+        (Libre ?c1)(En ?c ?c2)
         (CabezaEn ?c ?c4)(ColaEn ?c ?c2)
         (DerechaDe ?c4 ?c3)
-        (not (Extremo ?c2))
-        (imply (not (Extremo ?c2))
-            (DerechaDe ?c2 ?c1)
-        )
+        (En ?c ?c3)(En ?c ?c4)
     )
     :effect (and 
         (not (En ?c ?c4))(En ?c ?c1)(Libre ?c4)
@@ -52,14 +51,13 @@ hor ver - coche
 )
 (:action Mover_Arriba
     :parameters (?c - ver ?c1 - casilla ?c2 - casilla ?c3 - casilla ?c4 - casilla)
-    :precondition (and 
-        (En ?c ?c1)(En ?c ?c2)(En ?c ?c3)(Libre ?c4)
+    :precondition (and
+        (not (ExtremoNS ?c3))
+        (ArribaDe ?c4 ?c3)
+        (Libre ?c4)(En ?c ?c3)
         (CabezaEn ?c ?c3)(ColaEn ?c ?c1)
         (ArribaDe ?c2 ?c1)
-        (not (Extremo ?c3))
-        (imply (not (Extremo ?c3))
-            (ArribaDe ?c4 ?c3)
-        )
+        (En ?c ?c1)(En ?c ?c2)
     )
     :effect (and 
         (not (En ?c ?c1))(En ?c ?c4)(Libre ?c1)
@@ -69,13 +67,12 @@ hor ver - coche
 (:action Mover_Abajo
     :parameters (?c - ver ?c1 - casilla ?c2 - casilla ?c3 - casilla ?c4 - casilla)
     :precondition (and
-        (Libre ?c1)(En ?c ?c2)(En ?c ?c3)(En ?c ?c4)
+        (not (ExtremoNS ?c2))
+        (ArribaDe ?c2 ?c1)
+        (Libre ?c1)(En ?c ?c2)
         (CabezaEn ?c ?c4)(ColaEn ?c ?c2)
         (ArribaDe ?c4 ?c3)
-        (not (Extremo ?c2))
-        (imply (not (Extremo ?c2)) 
-            (ArribaDe ?c2 ?c1)
-        )
+        (En ?c ?c3)(En ?c ?c4)
     )
     :effect (and 
         (not (En ?c ?c4))(En ?c ?c1)(Libre ?c4)
