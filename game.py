@@ -25,12 +25,10 @@ class Game():
             if self.START_KEY:
                 self.playing = False
             self.display.fill(NEGRO)
-            #self.draw_text('Thanks for Playing', TITULO , WIDTH/2, HEIGHT/2)
+            self.window.blit(self.display, (0,0))
 
             self.board.draw_board()
-            self.display.blit(self.board.background, (0,0))
-
-            self.window.blit(self.display, (0,0))
+            
             pygame.display.update()
             self.reset_keys()
 
