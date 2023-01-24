@@ -117,4 +117,8 @@ def generar_juego(horizontales: dict, verticales: dict):
         f.write('\n)')
     f.close()
 
-generar_juego(sys.argv[1], sys.argv[2])
+if __name__ == '__main__':
+    horizontales = input('Ingrese los coches horizontales: ')
+    verticales   = input('Ingrese los coches verticales: ')
+    horizontales, verticales = eval(horizontales), eval(verticales)
+    generar_juego(horizontales, verticales)
