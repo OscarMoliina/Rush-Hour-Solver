@@ -1,8 +1,5 @@
 import pygame
-from menu import *
-from plan_reader import *
-from constants import *
-from objects import *
+from resources import *
 
 class Game():
     def __init__(self):
@@ -11,7 +8,7 @@ class Game():
         self.UP_KEY, self.DOWN_KEY, self.START_KEY, self.BACK_KEY = False, False, False, False
         self.display = pygame.Surface((WIDTH, HEIGHT))
         self.window = pygame.display.set_mode(((WIDTH, HEIGHT)))
-        self.font_name = 'Arcadia.ttf'
+        self.font_name = 'resources/Arcadia.ttf'
         #self.font_name = pygame.font.get_default_font()
         self.main_menu = MainMenu(self)
         self.options = OptionsMenu(self)

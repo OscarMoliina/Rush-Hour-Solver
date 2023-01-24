@@ -1,7 +1,10 @@
 import sys
 
-def generar_juego(r:list, horizontales: dict, verticales: dict, n: int):
-    with open('problem1.pddl', 'w') as f:
+def generar_juego(horizontales: dict, verticales: dict):
+    r = [41,42]
+    n = 6
+
+    with open('problem.pddl', 'w') as f:
         f.write('(define (problem rush_hour) (:domain rush_hour)\n')
 
         # ---- OBJECTS ---- 
@@ -114,6 +117,4 @@ def generar_juego(r:list, horizontales: dict, verticales: dict, n: int):
         f.write('\n)')
     f.close()
 
-#r, hor, ver, n = sys.argv[1], sys.argv[2], sys.argv[3], sys.argv[4]
-
-generar_juego([41,42],{1:[12,13],2:[33,34,35],3:[25,26],4:[65,66]},{1:[11,21],2:[51,61],3:[22,32],4:[43,53,63],5:[14,24],6:[54,55],7:[36,46,56]},6)
+generar_juego(sys.argv[1], sys.argv[2])
