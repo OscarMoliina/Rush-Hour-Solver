@@ -1,4 +1,4 @@
-# RushHour - Planning
+# Rush-Hour Solver with Planning
 
 ## About the Project
 
@@ -8,7 +8,7 @@
 Para llevar a cabo este solver, solo se requiere de tener el ejecutable, con su archivo .dll, en el mismo directorio donde se quiere ejecutar. Para ello simplemente ha de:
 1. Clonar este repositorio git:
 ``` 
-$ git clone https://github.com/OscarMoliina/RushHour_Planning 
+$ git clone https://github.com/OscarMoliina/Rush-Hour-Solver 
 ```
 Una vez clonado, habrá en el directorio los archivos `metricff.exe` y `cygwin1.dll`, junto a `domain.pddl` y el creador de problemas `rush_hour_creator.py`.
 
