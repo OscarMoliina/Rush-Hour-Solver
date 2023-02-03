@@ -29,7 +29,7 @@ hor ver - coche
         (En ?c ?c1)(En ?c ?c2)
     )
     :effect (and 
-        (not (En ?c ?c1))(En ?c ?c4)(Libre ?c1)
+        (not (En ?c ?c1))(En ?c ?c4)(Libre ?c1)(not (Libre ?c4))
         (not (CabezaEn ?c ?c3))(CabezaEn ?c ?c4)(not (ColaEn ?c ?c1))(ColaEn ?c ?c2)
     )
 )
@@ -45,7 +45,7 @@ hor ver - coche
         (En ?c ?c3)(En ?c ?c4)
     )
     :effect (and 
-        (not (En ?c ?c4))(En ?c ?c1)(Libre ?c4)
+        (not (En ?c ?c4))(En ?c ?c1)(Libre ?c4)(not (Libre ?c1))
         (not (CabezaEn ?c ?c4))(CabezaEn ?c ?c3)(not (ColaEn ?c ?c2))(ColaEn ?c ?c1)
     )
 )
@@ -60,7 +60,7 @@ hor ver - coche
         (En ?c ?c1)(En ?c ?c2)
     )
     :effect (and 
-        (not (En ?c ?c1))(En ?c ?c4)(Libre ?c1)
+        (not (En ?c ?c1))(En ?c ?c4)(Libre ?c1)(not (Libre ?c4))
         (not (CabezaEn ?c ?c3))(CabezaEn ?c ?c4)(not (ColaEn ?c ?c1))(ColaEn ?c ?c2)
     )
 )
@@ -75,7 +75,7 @@ hor ver - coche
         (En ?c ?c3)(En ?c ?c4)
     )
     :effect (and 
-        (not (En ?c ?c4))(En ?c ?c1)(Libre ?c4)
+        (not (En ?c ?c4))(En ?c ?c1)(Libre ?c4)(not (Libre ?c1))
         (not (CabezaEn ?c ?c4))(CabezaEn ?c ?c3)(not (ColaEn ?c ?c2))(ColaEn ?c ?c1)
     )
 )
