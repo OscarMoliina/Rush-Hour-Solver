@@ -1,7 +1,11 @@
 # Rush-Hour Solver with Planning
 
-## About the Project
-
+## To-do
+- Generalizar para cualquier posición en **x** del Coche Rojo.
+- Generalizar para cualquier posición en **y** del Coche Rojo.
+- Simplificar Input.
+- Crear Interfaz.
+- Ampliar a Software de Redes Neuronales.
 
 ## Getting Started
 ### Installation and Usage
