@@ -3,7 +3,9 @@
 ## To-do
 - Generalizar para cualquier posición en **x** del Coche Rojo.
 - Generalizar para cualquier posición en **y** del Coche Rojo.
+- Cambiar distribución de Casillas y Adaptarlo.
 - Simplificar Input.
+  - Posicionado sin necesidad de orden.
 - Crear Interfaz.
 - Ampliar a Software de Redes Neuronales.
 
@@ -26,6 +28,8 @@ $ python3 rush_hour_creator
 >>> Ingrese los coches horizontales: {1:[12,13]}
 >>> Ingrese los coches verticales: {1:[21,31]}
 ```
+Nótese que el orden de las posiciones de un coche debe ser ascendente.
+
 Este archivo escribirá en el fitxero `problem.pddl` el estado inicial del juego a resolver.
 
 Una vez creado el estado inicial del juego, solo queda ejecutar el planificador con el dominio del problema y el estado inicial en cuestión:
